@@ -1,14 +1,14 @@
 
 class ApplicationController < Sinatra::Base 
   configure do 
+    enable :sessions
+    set :session_serect, 'randomserect'
+    set :public_folder, 'public'
     set :views, 'app/views'
   end
 
   get '/' do 
-    @new_hash = {
-      :name => "Ramesh",
-    }
-    erb :'homepage'
+    redirect to '/index.html'
   end
 
   get '/login' do 

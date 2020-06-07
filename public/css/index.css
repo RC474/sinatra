@@ -1,0 +1,20 @@
+#wrapper{
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(teal, green);
+  padding-top: 100px;
+  color: white;
+}
+
+a:visited{
+  color: white;
+}
+
+a{
+  font-size: 2em;
+}
+
+h1{
+  font-size: 4em;
+}
