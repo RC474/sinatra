@@ -11,11 +11,11 @@ class ApplicationController < Sinatra::Base
     redirect to '/index.html'
   end
 
-  get '/login' do 
-    erb :'login'
-  end
+  # get '/login' do 
+  #   erb :'login'
+  # end
 
-  get '/signup' do 
-    erb :'signup'
-  end
+  # get '/signup' do 
+  #   erb :'signup'
+  # end
 end
