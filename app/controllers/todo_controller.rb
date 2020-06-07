@@ -4,16 +4,27 @@ class TodosController < ApplicationController
   get "/todos" do
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
+      @todo_list = Todo.where('user_id = ?', session[:user_id])
       erb :"todos"
     else
       redirect '/login'
     end
   end
 
-  # #new
-  # get "/posts/new" do
-  #   erb :"/posts/new.html"
-  # end
+  #new
+  post "/todos/new" do
+    if session[:user_id]
+      newtodo = Todo.new
+      newtodo.todo = params[:todo]
+      newtodo.iscompelete = false 
+      newtodo.user_id = session[:user_id]
+      newtodo.save 
+      redirect '/todos'
+    else
+      redirect '/login'
+    end
+  end
+  
 
   # # create
   # post "/posts" do

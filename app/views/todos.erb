@@ -11,5 +11,20 @@
   <form action="/logout">
     <input type='submit' value='logout'>
   </form>
+  <form action="/todos/new" method='post'>
+    <input type="text" name='todo' placeholder="type your todo's here">
+    <input type="submit" value="Add">
+  </form>
+  <% if @todo_list.length > 0 %>
+    <p>You have <%=@todo_list.length%> todos </p>
+    <p>Here is the list of your todo's</p>
+    <ol>
+      <%@todo_list.each do |todo| %>
+          <li><%=todo.todo%> </li>
+      <% end %>
+    </ol>  
+  <% else %>
+      <p>You don't any todos. Add some todos first!</p>
+  <% end %>
 </body>
 </html>
