@@ -7,5 +7,9 @@
 </head>
 <body>
   <h1>Please create some todo's..</h1>
+  <h2>Welcome <%=@current_user.firstname%></h2>
+  <form action="/logout">
+    <input type='submit' value='logout'>
+  </form>
 </body>
 </html>

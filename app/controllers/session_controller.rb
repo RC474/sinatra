@@ -26,7 +26,7 @@ class SessionController < ApplicationController
     puts user
     if user && user.password == (params[:password])
       session[:user_id] = user.id
-      redirect 'todo/home'
+      redirect '/todos'
     else
       @error = "Invalid Credentials"
       erb :'login'
