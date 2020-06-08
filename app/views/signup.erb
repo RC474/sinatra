@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>signup</title>
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
+<div class="wrapper">
   <h1>Please fill out the requirements</h1></br>
   <form action="/signup" method="post">
     <label for="fname">Firstname:</label>
@@ -18,5 +20,8 @@
     <input type="password" id="pword" name='password' required placeholder="password" minlength="8" maxlength="12"></br></br>
     <input type="submit" value="sign-up">
   </form>
+  <p style="color: red"><%=@error_msg%></p>
+  <p>Already have account? <a href='/login'>Log In</a></p>
+</div>
 </body>
 </html>

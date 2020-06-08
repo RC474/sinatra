@@ -4,27 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo list</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/todos.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Please create some todo's..</h1>
-  <h2>Welcome <%=@current_user.firstname%></h2>
-  <form action="/logout">
-    <input type='submit' value='logout'>
-  </form>
-  <form action="/todos/new" method='post'>
-    <input type="text" name='todo' placeholder="type your todo's here">
+<div id="wrapper">
+  <div id="logout">
+    <h2>Welcome <%=@current_user.firstname%></h2>
+    <form action="/logout">
+      <input type='submit' value='logout'>
+    </form>
+  </div>
+  <form id='add' action="/todos/new" method='post'>
+    <input type="text" name="todo" placeholder="Your todo here" autofocus required>
     <input type="submit" value="Add">
   </form>
-  <% if @todo_list.length > 0 %>
-    <p>You have <%=@todo_list.length%> todos </p>
+
+   <% if @todo_list.length > 0 %>
     <p>Here is the list of your todo's</p>
-    <ol>
+    <ol id="todo-list">
       <%@todo_list.each do |todo| %>
-          <li><%=todo.todo%> </li>
+        <li data-todo-id="<%=todo.id%>">
+          <div>
+            <span><%=todo.todo%></span>
+            <span>
+              <i class="material-icons">edit</i>
+              <i class="material-icons">delete</i>
+            </span>
+          </div>
+        </li>
       <% end %>
     </ol>  
   <% else %>
       <p>You don't any todos. Add some todos first!</p>
   <% end %>
+  
+  
+  <div id="edit">
+    <div>
+      <h2>Edit your todo</h2>
+      <form action='/todos/edit' method='post'>
+        <input type="text" name="todo" autofocus required>
+        <input type="submit" value="save">
+        <input id="cancel" type="button" value="cancel"> 
+        <input type="hidden" id="hiddenid" name="todoid">
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src='js/todos.js'></script>
+  
 </body>
 </html>

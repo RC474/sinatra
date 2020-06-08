@@ -26,14 +26,30 @@ class TodosController < ApplicationController
   end
   
 
-  # # create
-  # post "/posts" do
-  #   redirect "/posts"
-  # end
 
-  # # show
-  # get "/posts/:id" do
-  #   erb :"/posts/show.html"
-  # end
+  # edit
+  post "/todos/edit" do
+    if session[:user_id]
+      old_todo = Todo.find_by(id: params[:todoid])
+      old_todo.todo = params[:todo]
+      old_todo.save
+      redirect '/todos'
+    else
+      redirect '/login'
+    end
+  end
+
+  #delete
+  get "/todos/delete/:todoid" do
+    if session[:user_id]
+
+      old_todo = Todo.find_by_id(params['todoid'].to_i)
+      old_todo.delete
+      redirect '/todos'
+    else
+      redirect '/login'
+    end
+  end
+
 
 end

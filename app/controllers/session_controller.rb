@@ -10,20 +10,25 @@ class SessionController < ApplicationController
 
   post '/signup' do
     # this is the way you should do it if you're using nested params User.create(params[:user])
-    user = User.new
-    user.firstname = params[:firstname]
-    user.lastname = params[:lastname]
-    user.username = params[:username]
-    user.password = params[:password]
-    user.save
-    session[:user_id] = user.id
-    redirect to '/'
+    existed_user = User.find_by(username: params[:username])
+    if existed_user
+      @error_msg = "This user name is already taken"
+      erb :'signup'
+    else
+
+      user = User.new
+      user.firstname = params[:firstname]
+      user.lastname = params[:lastname]
+      user.username = params[:username]
+      user.password = params[:password]
+      user.save
+      session[:user_id] = user.id
+      redirect to '/'
+    end
   end
 
   post '/login' do
     user = User.find_by(username: params[:username])
-    puts "------------------------------------------------------------------"
-    puts user
     if user && user.password == (params[:password])
       session[:user_id] = user.id
       redirect '/todos'
