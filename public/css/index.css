@@ -1,11 +1,3 @@
-#wrapper{
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(teal, green);
-  padding-top: 100px;
-  color: white;
-}
 
 a:visited{
   color: white;
@@ -27,4 +19,21 @@ a:visited{
   margin: 100px auto;
   background-color: teal;
   color: white;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(90deg, teal 5%, skyblue 40%, skyblue 70%, teal 95%);
+}
+
+#wrapper {
+  width: 800px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 100px auto;
+  background-color: teal;
+  color: white;
+  text-align: center;
+  height: 400px;
 }

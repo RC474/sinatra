@@ -6,7 +6,7 @@ input[type="text"] {
 }
 ol {
   border: 1px solid black;
-  width: 800px;
+  width: 700px;
 }
 ol li:hover {
   font-weight: bold;
@@ -41,8 +41,34 @@ ol li:hover {
   width: 500px;
   height: 200px;
   border: 1px solid black;
-  background-color: grey;
+  background: linear-gradient(teal 5%, skyblue 40%, skyblue 70%, teal 95%);
   padding: 10px;
   margin-top: 100px;
+}
+
+body{
+  min-height: 100vh;
+  background: linear-gradient(90deg, teal 5%, skyblue 40%, skyblue 70%, teal 95%);
+}
+
+#wrapper {
+  width: 850px;
+  margin: 50px auto;
+}
+
+#logout {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+input[type="submit"], input[type="button"] {
+  padding: 5px;
+  background-color: teal;
+  color: white;
 }
 
