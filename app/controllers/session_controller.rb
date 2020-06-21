@@ -17,19 +17,30 @@ class SessionController < ApplicationController
     else
 
       user = User.new
+      # (:firstname => params[:firstname], :lastname => params[:lastname], :username => params[:username], :password => params[:password])
       user.firstname = params[:firstname]
       user.lastname = params[:lastname]
       user.username = params[:username]
       user.password = params[:password]
-      user.save
+      if user.valid?
+        puts "valid"
+      else
+        puts "invalid"
+      end
+      # user.save
+      unless user.save 
+        user.errors.messages.each do |field, messages|
+          puts "#{field}: #{messages}"
+        end
+      end
       session[:user_id] = user.id
-      redirect to '/'
+      redirect to '/todos'
     end
   end
 
   post '/login' do
     user = User.find_by(username: params[:username])
-    if user && user.password == (params[:password])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect '/todos'
     else

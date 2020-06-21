@@ -31,9 +31,12 @@ class TodosController < ApplicationController
   post "/todos/edit" do
     if session[:user_id]
       old_todo = Todo.find_by(id: params[:todoid])
-      old_todo.todo = params[:todo]
-      old_todo.save
+      if old_todo.user_id == session[:user_id]
+        old_todo.todo = params[:todo]
+        old_todo.save
+      end
       redirect '/todos'
+      
     else
       redirect '/login'
     end
@@ -44,7 +47,9 @@ class TodosController < ApplicationController
     if session[:user_id]
 
       old_todo = Todo.find_by_id(params['todoid'].to_i)
-      old_todo.delete
+      if old_todo.user_id == session[:user_id]
+        old_todo.delete
+      end
       redirect '/todos'
     else
       redirect '/login'
