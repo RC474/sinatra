@@ -1,14 +1,33 @@
-WELCOME TO TODO APP SINATRA PROJECT
+# Project Title
 
-Welcome to the todo application! This is a demo app created using Sinatra, ActiveRecord, CSS(for stayling), and JAVASCRIPT. 
-TODO application let the user to create the todo list. A new user needs his/her firstname, lastname, username and password to signup. Signed up user only needs a user name and password to signin and they can be able to create their disired list of todos.
+This is a TODO list making applicatoion created by using Sinatra and ActiveRecord.
 
-Installation
-This project is a part of flatiron school's Sinatra project.
+### Prerequisites
 
-Run 
-download or clone this project
-cd into the new(new is the name of the directory) directory
-run bundle install in your console
-run rerun 'rackup'
-open your browser and enter the given local url provided by the rern 'rackup' server
+source "https://rubygems.org"
+enter bundle install in your terminal
+
+### Installing
+```
+Download or clone 
+```
+```
+Enter bundle install in your terminal
+```
+
+```
+Enter rerun 'rackup' in your terminal
+```
+
+## Built With
+
+* [Sinatra](https://rubygems.org/gems/sinatra/versions/1.4.7) - The web framework used
+* [ActiveRecord](https://rubygems.org/gems/activerecord/versions/5.0.0.1) - Database
+
+## Authors
+
+* **Ramesh Chuwan** - *Sinatra-project* - [TodoApplication](https://github.com/RC474/sinatra)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
